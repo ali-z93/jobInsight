@@ -3,6 +3,7 @@ package com.ali.jobInsight.company;
 import java.util.List;
 
 import com.ali.jobInsight.job.Job;
+import com.ali.jobInsight.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -24,7 +25,8 @@ public class Company {
 	@OneToMany(mappedBy = "company")
 	private List<Job> jobs;
 
-//	private List<Review> reviews;
+	@OneToMany(mappedBy = "company")
+	private List<Review> reviews;
 
 	public Company() {
 
@@ -68,5 +70,15 @@ public class Company {
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
 	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+	
+	
 
 }
